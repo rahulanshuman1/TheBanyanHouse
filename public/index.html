@@ -186,8 +186,7 @@ $('#panel').onclick=e=>{if(e.target.id==='panel')e.target.classList.remove('open
 $('#clr').onclick=()=>{order={};upd();$('#panel').classList.remove('open')};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#panel').classList.remove('open')});
 </script>
-<script src="payments.js?v=20261104"></script>
-<script src="booking.js?v=20261104"></script>
-<script>setTimeout(function(){var f=document.getElementById("bkfail");if(f){f.textContent="The booking form could not load. Please refresh the page (Ctrl+F5). If this keeps happening, please contact the hotel.";console.error("Booking form missing: check that public/booking.js and the latest public/payments.js are deployed.")}},3000)</script>
+<script src="payments.js?v=20261105"></script>
+<script>setTimeout(function(){var f=document.getElementById("bkfail");if(f){f.textContent="The booking form could not load. Please refresh the page (Ctrl+F5). If this keeps happening, please contact the hotel.";console.error("Booking form missing: check that the latest public/payments.js is deployed.")}},3000)</script>
 </body>
 </html>
