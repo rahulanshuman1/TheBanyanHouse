@@ -50,7 +50,7 @@ async function db(){
  await dbPromise;
 }
 app.use('/api',async(req,res,next)=>{try{await db();next()}catch(e){console.error('DB connection failed:',e.message);res.status(503).json({error:'Database is unavailable. Please try again in a moment.'})}});
-app.get('/api/health',(req,res)=>res.json({ok:true,db:'connected'}));
+app.get('/api/health',(req,res)=>res.json({ok:true,db:'connected',mail:{configured:!!(mailer&&APP_URL),missing:['SMTP_HOST','SMTP_USER','SMTP_PASS','APP_URL'].filter(k=>!(k==='APP_URL'?APP_URL:process.env[k])),lastErrorCode:mailState.lastErrorCode}}));
 // Webhook needs the raw body for signature check, so it is registered before express.json()
 app.post('/api/webhook',express.raw({type:'application/json'}),async(req,res)=>{
  const sig=req.headers['x-razorpay-signature'];
@@ -78,13 +78,15 @@ const wrap=f=>(q,s,n)=>f(q,s,n).catch(e=>{console.error(e);s.status(500).json({e
 // ---------- Email (SMTP via nodemailer) ----------
 const APP_URL=(process.env.APP_URL||FRONTEND_ORIGIN||'').replace(/\/$/,'');
 const SMTP_PORT=+(process.env.SMTP_PORT||465);
-const mailer=process.env.SMTP_HOST?nodemailer.createTransport({host:process.env.SMTP_HOST,port:SMTP_PORT,secure:SMTP_PORT===465,auth:{user:process.env.SMTP_USER,pass:process.env.SMTP_PASS}}):null;
+const mailState={lastErrorCode:null};
+// Google shows app passwords with spaces, so spaces are removed. Short timeouts keep us inside Vercel's time limit.
+const mailer=process.env.SMTP_HOST?nodemailer.createTransport({host:process.env.SMTP_HOST.trim(),port:SMTP_PORT,secure:SMTP_PORT===465,connectionTimeout:10000,greetingTimeout:10000,socketTimeout:15000,auth:{user:(process.env.SMTP_USER||'').trim(),pass:(process.env.SMTP_PASS||'').replace(/\s/g,'')}}):null;
 const h=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function sendMail(to,subject,heading,lines,btn,url){
  if(!mailer||!APP_URL){if(process.env.NODE_ENV!=='production')console.log('[mail not configured] '+subject+' -> '+to+'\n'+url);else console.error('Email not configured: set SMTP_* and APP_URL');return false}
  const html='<div style="font-family:Arial,sans-serif;background:#f4f1ea;padding:24px"><div style="max-width:480px;margin:auto;background:#fff;border-radius:14px;padding:28px;color:#16233a"><div style="font:700 22px Georgia,serif;margin-bottom:16px">The Banyan <span style="color:#c98a10">House</span></div><h2 style="margin:0 0 12px;font-size:22px">'+h(heading)+'</h2>'+lines.map(l=>'<p style="line-height:1.6;margin:0 0 12px">'+h(l)+'</p>').join('')+'<p style="margin:22px 0"><a href="'+url+'" style="background:#f2a900;color:#201500;text-decoration:none;font-weight:700;padding:12px 26px;border-radius:99px;display:inline-block">'+h(btn)+'</a></p><p style="color:#6b7487;font-size:13px;margin:0">If the button does not work, copy this link into your browser:<br>'+url+'</p></div></div>';
- try{await mailer.sendMail({from:process.env.MAIL_FROM||process.env.SMTP_USER,to,subject,text:lines.join('\n\n')+'\n\n'+btn+': '+url,html});return true}
- catch(e){console.error('Email send failed:',e.message);return false}
+ try{await mailer.sendMail({from:process.env.MAIL_FROM||process.env.SMTP_USER,to,subject,text:lines.join('\n\n')+'\n\n'+btn+': '+url,html});mailState.lastErrorCode=null;return true}
+ catch(e){mailState.lastErrorCode=e.code||e.responseCode||'UNKNOWN';console.error('Email send failed:',e.code||'',e.message);return false}
 }
 const mk=()=>{const t=crypto.randomBytes(32).toString('hex');return [t,crypto.createHash('sha256').update(t).digest('hex')]};
 const hs=t=>crypto.createHash('sha256').update(String(t||'')).digest('hex');
