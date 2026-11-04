@@ -1,6 +1,6 @@
 (()=>{
 const B=window.BH,$=s=>document.querySelector(s),root=$('#bk');
-if(!B||!root)return;
+if(!B||!root){if(root)root.innerHTML='<p style="color:var(--rose)">The booking form could not start because payments.js is outdated. Please deploy the latest payments.js and refresh.</p>';console.error('booking.js: window.BH is missing. Deploy the latest payments.js.');return}
 const ROOMS={"Garden Room":{p:3800,a:2,c:1,d:'28 m² · queen bed · courtyard balcony'},"Skyline Deluxe":{p:5400,a:3,c:2,d:'34 m² · king bed · city view'},"Banyan Suite":{p:9200,a:4,c:3,d:'58 m² · lounge · bathtub'}};
 const IDT={aadhaar:{n:'Aadhaar Card',re:/^[2-9]\d{11}$/,ph:'12-digit Aadhaar number',h:'12 digits'},passport:{n:'Passport',re:/^[A-Z0-9]{6,9}$/,ph:'Passport number',h:'6 to 9 letters or digits'},dl:{n:'Driving Licence',re:/^[A-Z0-9]{8,20}$/,ph:'Licence number',h:'8 to 20 letters or digits'},voter:{n:'Voter ID (EPIC)',re:/^[A-Z]{3}\d{7}$/,ph:'e.g. ABC1234567',h:'3 letters followed by 7 digits'}};
 const NM=/^[A-Za-z][A-Za-z .'-]{0,39}$/;

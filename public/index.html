@@ -131,7 +131,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <article class="room"><div class="art">👑</div><div class="b"><h3>Banyan Suite</h3><p>58 m², separate lounge, bathtub, private dining for four.</p><span class="price">₹9,200 <small>/ night</small></span></div></article>
 </div></div></section>
 
-<section id="book"><div class="wrap"><div class="head"><h2>Book your stay</h2><p>Choose your room, add guest details and pay securely online. Your booking appears under My orders right away.</p></div><div id="bk"></div></div></section>
+<section id="book"><div class="wrap"><div class="head"><h2>Book your stay</h2><p>Choose your room, add guest details and pay securely online. Your booking appears under My orders right away.</p></div><div id="bk"><p id="bkfail" style="color:var(--mute)">Loading the booking form…</p></div></div></section>
 
 <section class="alt" id="visit"><div class="wrap">
 <div class="head"><h2>Visit us</h2></div>
@@ -186,7 +186,8 @@ $('#panel').onclick=e=>{if(e.target.id==='panel')e.target.classList.remove('open
 $('#clr').onclick=()=>{order={};upd();$('#panel').classList.remove('open')};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#panel').classList.remove('open')});
 </script>
-<script src="payments.js"></script>
-<script src="booking.js"></script>
+<script src="payments.js?v=20261104"></script>
+<script src="booking.js?v=20261104"></script>
+<script>setTimeout(function(){var f=document.getElementById("bkfail");if(f){f.textContent="The booking form could not load. Please refresh the page (Ctrl+F5). If this keeps happening, please contact the hotel.";console.error("Booking form missing: check that public/booking.js and the latest public/payments.js are deployed.")}},3000)</script>
 </body>
 </html>
