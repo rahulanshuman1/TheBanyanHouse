@@ -36,9 +36,15 @@ css.textContent=`.am{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.6)
 .od-act{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
 .od-note{color:var(--mute);font-size:14px;margin:0 0 12px}
 .od-empty{text-align:center;color:var(--mute);padding:30px 0}
+<<<<<<< HEAD
 .vb{position:fixed;top:calc(var(--nh,64px) + env(safe-area-inset-top,0px));left:0;right:0;z-index:19;background:#f2a900;color:#201500;padding:8px 14px;font-size:14px;display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap}.vb[hidden]{display:none}
 .lk{background:none;border:0;color:var(--gold);cursor:pointer;font:600 14px Outfit,sans-serif;text-decoration:underline;padding:4px;text-align:left}.vb .lk{color:#201500}
 `;
+=======
+.vb{position:fixed;top:calc(60px + env(safe-area-inset-top,0px));left:0;right:0;z-index:19;background:#f2a900;color:#201500;padding:8px 14px;font-size:14px;display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap}.vb[hidden]{display:none}
+.lk{background:none;border:0;color:var(--gold);cursor:pointer;font:600 14px Outfit,sans-serif;text-decoration:underline;padding:4px;text-align:left}.vb .lk{color:#201500}
+@media(max-width:560px){.nb{padding:7px 10px;margin-right:6px;font-size:13px}.logo{font-size:20px}nav .btn{display:none}}`;
+>>>>>>> 0b5b4cc47dd00129c7aa1da5bf6eff75ba3d115e
 document.head.appendChild(css);
 const EYE='position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--gold);cursor:pointer;font:600 13px Outfit,sans-serif;padding:6px 8px';
 const modal=document.createElement('div');modal.className='am';modal.innerHTML=`<div class="ab" role="dialog" aria-modal="true" aria-label="Account">
@@ -82,7 +88,11 @@ function needAuth(cb){if(user)return cb();after=cb;setMode('login');modal.classL
 // ---- email verification: banner + gate before ordering ----
 const bn=document.createElement('div');bn.className='vb';bn.hidden=true;bn.innerHTML='<span id="vbt"></span><button class="lk" id="vbr">Resend email</button><button class="lk" id="vbc">I have verified</button>';
 document.body.appendChild(bn);
+<<<<<<< HEAD
 function vbUpdate(){const show=!!user&&!user.emailVerified;bn.hidden=!show;if(show)$('#vbt').textContent='Verify your email to place orders.'}
+=======
+function vbUpdate(){const show=!!user&&!user.emailVerified;bn.hidden=!show;if(show)$('#vbt').textContent='Verify '+user.email+' to place orders.'}
+>>>>>>> 0b5b4cc47dd00129c7aa1da5bf6eff75ba3d115e
 async function refreshMe(){try{const d=await api('/api/me');user=d.user;navUI();return !!user.emailVerified}catch{return false}}
 async function resend(){try{const d=await api('/api/resend-verification',{method:'POST'});if(d.verified){user.emailVerified=true;navUI();toast('Your email is already verified.')}else toast('Verification email sent to '+user.email)}catch(e){toast(e.message)}}
 $('#vbr').onclick=resend;
@@ -110,6 +120,7 @@ $('#rpg').onclick=async()=>{
 };
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){vm.classList.remove('open');rm.classList.remove('open')}});
 // nav button
+<<<<<<< HEAD
 // ---- nav account area (name only, never the email) ----
 function eh(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 const initials=n=>(n||'?').trim().split(/\s+/).slice(0,2).map(x=>x[0]||'').join('').toUpperCase()||'?';
@@ -137,6 +148,13 @@ document.addEventListener('click',e=>{
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
 navUI();
 if(token)api('/api/me').then(d=>{user=d.user;loadingMe=false;navUI()}).catch(()=>{token=null;loadingMe=false;localStorage.removeItem('bh_token');navUI()});
+=======
+const nb=document.createElement('button');nb.className='nb';nb.id='nb';document.querySelector('nav .wrap>a.btn').before(nb);
+const mo=document.createElement('button');mo.className='nb';mo.id='mo';mo.textContent='My orders';mo.style.display='none';nb.before(mo);mo.onclick=()=>openOrders();
+function navUI(){vbUpdate();mo.style.display=user?'':'none';prefill();nb.textContent=user?'Sign out ('+user.name.split(' ')[0]+')':'Sign in';nb.onclick=()=>{if(user){user=null;token=null;localStorage.removeItem('bh_token');navUI();toast('Signed out')}else needAuth(()=>{})}}
+navUI();
+if(token)api('/api/me').then(d=>{user=d.user;navUI()}).catch(()=>{token=null;localStorage.removeItem('bh_token')});
+>>>>>>> 0b5b4cc47dd00129c7aa1da5bf6eff75ba3d115e
 function prefill(){(window.BH?BH.hooks:[]).forEach(f=>f(user))}
 // ---------- My orders: list, detail, receipt ----------
 const P={};Object.values(MENU).flat().forEach(d=>P[d[0]]=d[3]);
