@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Banyan House – Hotel & Restaurant</title>
+<meta name="description" content="Boutique hotel with a farm-to-table restaurant. Book rooms and explore our menu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--nh:68px;--bg:#0e1a2b;--bg2:#14243a;--card:#192c46;--ink:#f4efe6;--mute:#a9b4c4;--gold:#f2a900;--rose:#d9435a;--jade:#2fa388;--line:rgba(255,255,255,.12);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#fbf8f2;--bg2:#f1ece1;--card:#fff;--ink:#16233a;--mute:#5b667a;--line:rgba(22,35,58,.14);color-scheme:light}}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 Outfit,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.05;margin:0}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1120px;margin:auto;padding:0 22px}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;padding-top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid transparent;transition:background .3s,box-shadow .3s,border-color .3s}
+nav.sc{background:color-mix(in srgb,var(--bg) 93%,transparent);border-color:var(--line);box-shadow:0 8px 30px rgba(0,0,0,.14)}
+.nv{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:var(--nh);gap:20px}
+.logo{display:flex;align-items:center;gap:12px;justify-self:start}
+.logo svg{width:46px;height:46px;flex:none;transition:transform .5s cubic-bezier(.3,1.5,.5,1),filter .3s}
+.logo:hover svg{transform:rotate(-8deg) scale(1.08);filter:drop-shadow(0 4px 12px rgba(242,169,0,.5))}
+.lw{display:grid;line-height:1}
+.lw b{font:700 26px 'Cormorant Garamond',Georgia,serif;letter-spacing:.2px;white-space:nowrap}
+.lw b span{color:var(--gold);background:linear-gradient(90deg,#e08a00,#ffd978,#e08a00);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shine 5s linear infinite}
+.lw small{font:500 10px Outfit,sans-serif;letter-spacing:.34em;text-transform:uppercase;color:var(--mute);margin-top:5px}
+@keyframes shine{to{background-position:-200% 0}}
+.rg{fill:none;stroke:url(#lgd);stroke-width:1.6;stroke-dasharray:150;stroke-dashoffset:150;animation:draw 1.6s ease-out .1s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.cnp{transform-origin:24px 28px;animation:sway 6s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.rt{fill:none;stroke:url(#lgd);stroke-width:1.3;stroke-linecap:round;stroke-dasharray:22;stroke-dashoffset:22;animation:draw 1.2s ease-out forwards}
+.rt:nth-of-type(2){animation-delay:.5s}.rt:nth-of-type(3){animation-delay:.7s}.rt:nth-of-type(4){animation-delay:.9s}.rt:nth-of-type(5){animation-delay:1.1s}
+.lf{fill:#7fe0c3;opacity:0;animation:fall 6s ease-in 2s infinite}
+@keyframes fall{0%{opacity:0;transform:translate(0,0) rotate(0)}15%{opacity:.9}100%{opacity:0;transform:translate(-6px,18px) rotate(160deg)}}
+.nv-l{display:flex;gap:4px;list-style:none;margin:0;padding:0;justify-self:center}
+.nv-l a{position:relative;display:block;padding:10px 16px;font-size:15px;font-weight:500;color:var(--mute);transition:color .2s}
+.nv-l a::after{content:'';position:absolute;left:16px;right:16px;bottom:4px;height:2px;border-radius:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nv-l a:hover,.nv-l a.on{color:var(--ink)}.nv-l a:hover::after,.nv-l a.on::after{transform:scaleX(1)}
+.nv-r{display:flex;align-items:center;gap:12px;justify-self:end}
+.nv-r .btn{padding:10px 22px}
+.nbtn{background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:99px;padding:9px 20px;font:500 15px Outfit,sans-serif;cursor:pointer;transition:.2s}.nbtn:hover{border-color:var(--gold);color:var(--gold)}
+.sk{display:block;width:118px;height:42px;border-radius:99px;background:linear-gradient(90deg,var(--bg2),var(--line),var(--bg2));background-size:200% 100%;animation:shine 1.3s linear infinite}
+.um{position:relative}
+.um-b{display:flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:99px;padding:5px 12px 5px 5px;font:500 15px Outfit,sans-serif;cursor:pointer;transition:.2s}.um-b:hover,.um-b[aria-expanded=true]{border-color:var(--gold)}
+.av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#f7c948,#e08a00);color:#201500;font:700 13px Outfit,sans-serif;flex:none}.av.lg{width:42px;height:42px;font-size:15px}
+.um-b svg{width:14px;height:14px;transition:transform .2s}.um-b[aria-expanded=true] svg{transform:rotate(180deg)}
+.um-m{position:absolute;right:0;top:calc(100% + 10px);min-width:250px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.3);padding:8px;animation:dd .2s ease-out}
+@keyframes dd{from{opacity:0;transform:translateY(-6px)}}
+.um-m[hidden]{display:none}
+.um-h{display:flex;gap:12px;align-items:center;padding:10px;border-bottom:1px solid var(--line);margin-bottom:6px}.um-h div{display:grid;line-height:1.35}.um-h small{color:var(--mute);font-size:12.5px}.um-h small.ok{color:var(--jade)}
+.um-m button,.mnav .mrow{display:block;width:100%;text-align:left;background:none;border:0;color:var(--ink);padding:11px 12px;border-radius:10px;font:500 15px Outfit,sans-serif;cursor:pointer}.um-m button:hover,.mnav .mrow:hover{background:var(--bg2)}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer;place-items:center}
+.burger svg{width:22px;height:22px}
+.mnav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 20px 40px rgba(0,0,0,.2);padding:10px 22px 20px;gap:2px}
+.mnav.open{display:grid;animation:dd .2s ease-out}
+.mnav>a:not(.btn){padding:13px 12px;font-weight:500;border-radius:10px}.mnav>a:not(.btn):hover{background:var(--bg2)}
+.mnav #macct{border-top:1px solid var(--line);margin:8px 0;padding-top:8px}
+.mnav .btn{text-align:center;margin-top:6px}
+@media(max-width:900px){.nv{grid-template-columns:1fr auto}.nv-l,#acct{display:none}.burger{display:grid}}
+@media(max-width:560px){.nv-r>.btn{display:none}.lw small{display:none}.lw b{font-size:23px}.logo svg{width:40px;height:40px}}
+.btn{display:inline-block;background:var(--gold);color:#201500;font-weight:600;padding:12px 24px;border-radius:999px;border:0;cursor:pointer;font:600 15px Outfit,sans-serif;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(242,169,0,.3)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+/* hero */
+.hero{min-height:100svh;display:grid;align-items:center;padding:100px 0 60px;background:radial-gradient(60% 50% at 75% 45%,rgba(242,169,0,.16),transparent 70%),var(--bg);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(46px,8vw,92px);font-weight:600}
+.hero p{color:var(--mute);max-width:440px;margin:22px 0 30px;font-size:18px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.orbit{position:relative;width:min(440px,86vw);aspect-ratio:1;margin:auto}
+.plate{position:absolute;inset:18%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#e5e0d5 60%,#c9c2b3);box-shadow:0 30px 60px rgba(0,0,0,.45),inset 0 0 0 10px rgba(0,0,0,.05);display:grid;place-items:center;font-size:clamp(70px,16vw,130px);animation:bob 5s ease-in-out infinite}
+.ring{position:absolute;inset:0;animation:spin 36s linear infinite}
+.ring span{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px;display:grid;place-items:center;font-size:34px;background:var(--card);border:1px solid var(--line);border-radius:50%;box-shadow:0 10px 24px rgba(0,0,0,.35);transform:rotate(var(--a)) translateY(calc(min(440px,86vw)/-2 + 12px)) rotate(calc(var(--a)*-1))}
+.ring span i{font-style:normal;display:block;animation:spin 36s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bob{50%{transform:translateY(-10px) rotate(3deg)}}
+.steam{position:absolute;left:50%;top:10%;width:60px;height:60px;margin-left:-30px}
+.steam i{position:absolute;bottom:0;width:6px;height:36px;border-radius:6px;background:linear-gradient(transparent,rgba(255,255,255,.55));animation:rise 3s ease-in infinite}
+.steam i:nth-child(1){left:12px}.steam i:nth-child(2){left:28px;animation-delay:.8s}.steam i:nth-child(3){left:44px;animation-delay:1.6s}
+@keyframes rise{0%{opacity:0;transform:translateY(20px) scaleY(.5)}40%{opacity:1}100%{opacity:0;transform:translateY(-40px) scaleY(1.3)}}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}.orbit{order:-1;width:min(340px,80vw)}.ring span{width:52px;height:52px;margin:-26px;font-size:26px;transform:rotate(var(--a)) translateY(calc(min(340px,80vw)/-2 + 10px)) rotate(calc(var(--a)*-1))}}
+/* sections */
+section{padding:92px 0}
+.head{max-width:560px;margin-bottom:38px}
+.head h2{font-size:clamp(36px,5vw,56px)}
+.head p{color:var(--mute);margin:12px 0 0}
+.alt{background:var(--bg2)}
+/* menu */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:28px;scrollbar-width:none}
+.tab{flex:none;background:transparent;color:var(--mute);border:1px solid var(--line);padding:10px 20px;border-radius:999px;font:500 15px Outfit,sans-serif;cursor:pointer;transition:.25s}
+.tab[aria-selected=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.dish{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;position:relative;overflow:hidden;opacity:0;transform:translateY(26px) scale(.96);animation:pop .55s cubic-bezier(.2,.9,.3,1.2) forwards;animation-delay:calc(var(--i)*70ms)}
+@keyframes pop{to{opacity:1;transform:none}}
+.dish .pic{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;font-size:52px;margin:0 auto 14px;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.18),rgba(255,255,255,.04));transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.dish:hover .pic{transform:rotate(18deg) scale(1.18)}
+.dish h3{font-size:25px}
+.dish p{color:var(--mute);font-size:14.5px;margin:6px 0 16px;min-height:44px}
+.dish .row{display:flex;align-items:center;justify-content:space-between}
+.price{font:600 22px 'Cormorant Garamond',serif;color:var(--gold)}
+.tag{position:absolute;top:14px;right:14px;font-size:12px;padding:3px 10px;border-radius:99px;border:1px solid var(--line)}
+.veg{color:var(--jade)}.nv{color:var(--rose)}
+.add{background:transparent;border:1px solid var(--gold);color:var(--gold);border-radius:99px;padding:7px 16px;font:500 14px Outfit,sans-serif;cursor:pointer;transition:.2s}
+.add:hover{background:var(--gold);color:#201500}
+.tray{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--gold);color:#201500;border:0;border-radius:99px;padding:13px 22px;font:600 15px Outfit,sans-serif;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.4);transform:translateY(120px);transition:transform .4s cubic-bezier(.2,1.2,.4,1)}
+.tray.show{transform:none}
+.tray.bump{animation:bump .4s}
+@keyframes bump{50%{transform:scale(1.12)}}
+.fly{position:fixed;z-index:40;font-size:30px;pointer-events:none;transition:transform .7s cubic-bezier(.5,-.3,.7,1),opacity .7s}
+.panel{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.55);display:none;align-items:flex-end;justify-content:center}
+.panel.open{display:flex}
+.sheet{background:var(--card);width:min(520px,100%);max-height:80vh;overflow:auto;border-radius:22px 22px 0 0;padding:26px;animation:up .35s ease-out}
+@keyframes up{from{transform:translateY(60px);opacity:0}}
+.sheet li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);list-style:none}
+.sheet ul{padding:0;margin:14px 0}
+/* rooms */
+.rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.room{border-radius:20px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+.room .art{height:170px;display:grid;place-items:center;font-size:64px}
+.room:nth-child(1) .art{background:linear-gradient(135deg,#1f6f5c,#143a4a)}
+.room:nth-child(2) .art{background:linear-gradient(135deg,#8a3a52,#2b2250)}
+.room:nth-child(3) .art{background:linear-gradient(135deg,#c98a10,#7a2f1d)}
+.room div.b{padding:20px}
+.room h3{font-size:28px}
+.room p{color:var(--mute);font-size:14.5px;margin:6px 0 12px}
+.room .price small{font:400 13px Outfit;color:var(--mute)}
+/* booking */
+.book{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+@media(max-width:820px){.book{grid-template-columns:1fr}}
+form{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:grid;gap:6px;font-size:14px;color:var(--mute)}
+label.full,form .btn{grid-column:1/-1}
+input,select{background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px;font:400 15px Outfit,sans-serif;width:100%}
+.ok{grid-column:1/-1;color:var(--jade);min-height:22px;font-weight:500}
+.info p{color:var(--mute);margin:0 0 12px}
+.info strong{color:var(--ink);font-weight:500}
+footer{padding:30px 0 40px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.dish{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="wrap nv"><a class="logo" href="#top" aria-label="The Banyan House, home"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lgd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd978"/><stop offset="1" stop-color="#e08a00"/></linearGradient><linearGradient id="lgj" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fc4a3"/><stop offset="1" stop-color="#1f6f5c"/></linearGradient></defs><circle cx="24" cy="24" r="23" fill="#122238"/><circle class="rg" cx="24" cy="24" r="22.4"/><g class="cnp"><circle cx="24" cy="14.5" r="8" fill="url(#lgj)"/><circle cx="16.2" cy="20" r="6.3" fill="url(#lgj)" opacity=".95"/><circle cx="31.8" cy="20" r="6.3" fill="url(#lgj)" opacity=".95"/></g><path d="M24 22v16" stroke="url(#lgd)" stroke-width="2.6" stroke-linecap="round" fill="none"/><path class="rt" d="M18 25c-1 4-1.8 8-1.4 12"/><path class="rt" d="M30 25c1 4 1.8 8 1.4 12"/><path class="rt" d="M21 26c-.5 4-.8 7-.8 11"/><path class="rt" d="M27 26c.5 4 .8 7 .8 11"/><path d="M13 38.5q11 3 22 0" stroke="url(#lgd)" stroke-width="1.5" stroke-linecap="round" fill="none"/><ellipse class="lf" cx="30" cy="25" rx="1.8" ry="1"/></svg><span class="lw"><b>The <span>Banyan</span> House</b><small>Hotel &amp; Kitchen</small></span></a>
+<ul class="nv-l" id="links"><li><a href="#menu">Menu</a></li><li><a href="#rooms">Rooms</a></li><li><a href="#book">Book</a></li><li><a href="#visit">Visit</a></li></ul>
+<div class="nv-r"><div id="acct"></div><a class="btn" href="#book">Book a stay</a><button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path id="bp" d="M4 7h16M4 12h16M4 17h16"/></svg></button></div></div>
+<div class="mnav" id="mnav"><a href="#menu">Menu</a><a href="#rooms">Rooms</a><a href="#book">Book</a><a href="#visit">Visit</a><div id="macct"></div><a class="btn" href="#book">Book a stay</a></div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+<div><h1>Sleep well. Eat better.</h1>
+<p>A 42-room boutique hotel with a farm-to-table kitchen. Wake up to fresh poha, end the day with a slow-cooked biryani.</p>
+<div class="cta"><a class="btn" href="#book">Book a room</a><a class="btn ghost" href="#menu">See the menu</a></div></div>
+<div class="orbit" aria-hidden="true"><div class="ring" id="ring"></div><div class="plate"><div class="steam"><i></i><i></i><i></i></div><span id="heroDish">🍛</span></div></div>
+</div></header>
+
+<section id="menu"><div class="wrap">
+<div class="head"><h2>Today’s menu</h2><p>Cooked fresh from 7 am to 11 pm. Tap a category, then add dishes to your table order.</p></div>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="grid" id="grid" aria-live="polite"></div>
+</div></section>
+
+<section class="alt" id="rooms"><div class="wrap">
+<div class="head"><h2>Rooms</h2><p>Every room includes breakfast, fast Wi-Fi and free cancellation up to 48 hours before check-in.</p></div>
+<div class="rooms">
+<article class="room"><div class="art">🛏️</div><div class="b"><h3>Garden Room</h3><p>28 m², queen bed, balcony facing the courtyard.</p><span class="price">₹3,800 <small>/ night</small></span></div></article>
+<article class="room"><div class="art">🌆</div><div class="b"><h3>Skyline Deluxe</h3><p>34 m², king bed, work desk, city view from the 6th floor.</p><span class="price">₹5,400 <small>/ night</small></span></div></article>
+<article class="room"><div class="art">👑</div><div class="b"><h3>Banyan Suite</h3><p>58 m², separate lounge, bathtub, private dining for four.</p><span class="price">₹9,200 <small>/ night</small></span></div></article>
+</div></div></section>
+
+<section id="book"><div class="wrap"><div class="head"><h2>Book your stay</h2><p>Choose your room, add guest details and pay securely online. Your booking appears under My orders right away.</p></div><div id="bk"><p id="bkfail" style="color:var(--mute)">Loading the booking form…</p></div></div></section>
+
+<section class="alt" id="visit"><div class="wrap">
+<div class="head"><h2>Visit us</h2></div>
+<div class="info"><p><strong>Address</strong> 12 Temple Road, Ambad, Nashik 422010</p><p><strong>Phone</strong> +91 98765 43210 · <strong>Email</strong> stay@banyanhouse.example</p><p><strong>Restaurant hours</strong> 7 am – 11 pm, every day</p></div>
+</div></section>
+<footer><div class="wrap"><span>© 2026 The Banyan House</span><span>Free cancellation · Pure veg and non-veg kitchens kept separate</span></div></footer>
+
+<button class="tray" id="tray" aria-label="View order"></button>
+<div class="panel" id="panel"><div class="sheet" role="dialog" aria-modal="true" aria-label="Your order"><h3 style="font-size:32px">Your table order</h3><ul id="olist"></ul><p style="display:flex;justify-content:space-between;font-weight:600"><span>Total</span><span id="otot"></span></p><p style="color:var(--mute);font-size:14px;margin-top:0">Show this to your server, or tell it to the front desk to confirm.</p><div class="cta"><button class="btn" id="clr">Clear order</button><button class="btn ghost" id="cls">Close</button></div></div></div>
+
+<script>
+const MENU={
+"Breakfast":[["Kanda Poha","🍚","Flattened rice, onion, peanuts, lemon and coriander.",120,"v"],["Masala Dosa","🥞","Crisp rice crepe, potato masala, coconut chutney.",160,"v"],["Aloo Paratha","🫓","Stuffed flatbread with butter, curd and pickle.",150,"v"],["Egg Bhurji Pav","🍳","Spiced scrambled eggs with toasted buttered pav.",170,"n"]],
+"Starters":[["Paneer Tikka","🍢","Tandoor-grilled paneer with mint chutney.",320,"v"],["Chicken 65","🍗","Crisp, spicy curry-leaf fried chicken.",360,"n"],["Veg Spring Rolls","🥟","Crunchy rolls with sweet chilli dip.",240,"v"],["Fish Amritsari","🐟","Ajwain-battered fish, fried golden.",420,"n"]],
+"Mains":[["Dum Biryani","🍛","Slow-cooked basmati with saffron and raita.",380,"n"],["Dal Makhani","🍲","Black lentils simmered overnight in butter and cream.",290,"v"],["Butter Chicken","🍖","Tandoori chicken in tomato-butter gravy.",410,"n"],["Veg Thali","🍱","Two sabzi, dal, rice, roti, sweet and papad.",340,"v"]],
+"Desserts":[["Gulab Jamun","🍮","Warm milk dumplings in cardamom syrup.",140,"v"],["Shrikhand","🍨","Chilled saffron yogurt with pistachios.",150,"v"],["Chocolate Lava Cake","🍰","Molten centre, served with vanilla ice cream.",220,"v"]],
+"Drinks":[["Masala Chai","☕","Ginger and cardamom, brewed to order.",70,"v"],["Fresh Lime Soda","🍋","Sweet, salted or mixed.",90,"v"],["Mango Lassi","🥭","Alphonso mango blended with thick curd.",150,"v"],["Cold Coffee","🧋","Iced coffee with a scoop of ice cream.",160,"v"]]
+};
+const $=s=>document.querySelector(s),fmt=n=>'₹'+n.toLocaleString('en-IN');
+let order={},cat='Breakfast';
+// hero orbit
+const foods=['🥞','🍢','🍲','🍮','🥭','🍗','🫓','☕'];
+$('#ring').innerHTML=foods.map((f,i)=>`<span style="--a:${i*45}deg"><i>${f}</i></span>`).join('');
+const heroSeq=['🍛','🥘','🍜','🍝','🍕'];let hi=0;
+setInterval(()=>{hi=(hi+1)%heroSeq.length;$('#heroDish').textContent=heroSeq[hi]},2600);
+// tabs
+$('#tabs').innerHTML=Object.keys(MENU).map(c=>`<button class="tab" role="tab" aria-selected="${c===cat}">${c}</button>`).join('');
+$('#tabs').onclick=e=>{const b=e.target.closest('.tab');if(!b)return;cat=b.textContent;document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',t===b));render()};
+function render(){
+ $('#grid').innerHTML=MENU[cat].map((d,i)=>`<article class="dish" style="--i:${i}"><span class="tag ${d[4]==='v'?'veg':'nv'}">${d[4]==='v'?'Veg':'Non-veg'}</span><div class="pic">${d[1]}</div><h3>${d[0]}</h3><p>${d[2]}</p><div class="row"><span class="price">${fmt(d[3])}</span><button class="add" data-n="${d[0]}" data-p="${d[3]}" data-e="${d[1]}">Add to order</button></div></article>`).join('');
+}
+render();
+$('#grid').onclick=e=>{
+ const b=e.target.closest('.add');if(!b)return;
+ const n=b.dataset.n;order[n]=order[n]||{p:+b.dataset.p,q:0};order[n].q++;
+ const f=document.createElement('span');f.className='fly';f.textContent=b.dataset.e;
+ const r=b.getBoundingClientRect();f.style.left=r.left+'px';f.style.top=r.top+'px';document.body.appendChild(f);
+ const t=$('#tray').getBoundingClientRect();
+ requestAnimationFrame(()=>{f.style.transform=`translate(${t.left-r.left}px,${t.top-r.top}px) scale(.4)`;f.style.opacity='.2'});
+ setTimeout(()=>{f.remove();upd(true)},700);
+};
+function upd(bump){
+ const items=Object.entries(order),q=items.reduce((s,[,v])=>s+v.q,0),tot=items.reduce((s,[,v])=>s+v.q*v.p,0);
+ const t=$('#tray');t.classList.toggle('show',q>0);t.textContent=`Order · ${q} item${q>1?'s':''} · ${fmt(tot)}`;
+ if(bump){t.classList.remove('bump');void t.offsetWidth;t.classList.add('bump')}
+ $('#olist').innerHTML=items.map(([n,v])=>`<li><span>${n} × ${v.q}</span><span>${fmt(v.q*v.p)}</span></li>`).join('');
+ $('#otot').textContent=fmt(tot);
+}
+$('#tray').onclick=()=>$('#panel').classList.add('open');
+$('#cls').onclick=()=>$('#panel').classList.remove('open');
+$('#panel').onclick=e=>{if(e.target.id==='panel')e.target.classList.remove('open')};
+$('#clr').onclick=()=>{order={};upd();$('#panel').classList.remove('open')};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#panel').classList.remove('open')});
+</script>
+<script>
+// nav: scrolled style, mobile menu, active section highlight
+(function(){var nav=document.getElementById('nav'),bg=document.getElementById('burger'),mn=document.getElementById('mnav'),bp=document.getElementById('bp');
+function sc(){nav.classList.toggle('sc',window.scrollY>8)}sc();window.addEventListener('scroll',sc,{passive:true});
+function close(){mn.classList.remove('open');bg.setAttribute('aria-expanded','false');bg.setAttribute('aria-label','Open menu');bp.setAttribute('d','M4 7h16M4 12h16M4 17h16')}
+window.closeMnav=close;
+bg.onclick=function(){var o=!mn.classList.contains('open');mn.classList.toggle('open',o);bg.setAttribute('aria-expanded',o);bg.setAttribute('aria-label',o?'Close menu':'Open menu');bp.setAttribute('d',o?'M6 6l12 12M18 6L6 18':'M4 7h16M4 12h16M4 17h16')};
+mn.addEventListener('click',function(e){if(e.target.closest('a'))close()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){document.querySelectorAll('.nv-l a').forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+en.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+['menu','rooms','book','visit'].forEach(function(id){var s=document.getElementById(id);s&&io.observe(s)})}})();
+</script>
+<script src="payments.js?v=20261105"></script>
+<script>setTimeout(function(){var f=document.getElementById("bkfail");if(f){f.textContent="The booking form could not load. Please refresh the page (Ctrl+F5). If this keeps happening, please contact the hotel.";console.error("Booking form missing: check that the latest public/payments.js is deployed.")}},3000)</script>
+</body>
+</html>
